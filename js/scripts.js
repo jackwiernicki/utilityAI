@@ -3,54 +3,48 @@
 document.addEventListener("DOMContentLoaded", () => {
     const chatbotInput = document.getElementById('chatbot-input');
     const chatbotSend = document.getElementById('chatbot-send');
-    const chatContainer = document.getElementById('chat-container');
+    const chatMessages = document.getElementById('chat-messages');
 
     chatbotSend.addEventListener('click', () => {
-        const userInput = chatbotInput.value;
-        if (userInput) {
-            appendUserMessage(userInput);
-            // Placeholder for chatbot API call
-            // Backend API integration will be added here
-            simulateChatbotResponse(userInput); // Simulate response for now
-            chatbotInput.value = '';
-        }
+        sendMessage();
     });
 
     chatbotInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
-            const userInput = chatbotInput.value;
-            if (userInput) {
-                appendUserMessage(userInput);
-                // Placeholder for chatbot API call
-                // Backend API integration will be added here
-                simulateChatbotResponse(userInput); // Simulate response for now
-                chatbotInput.value = '';
-            }
+            sendMessage();
         }
     });
 
-    function simulateChatbotResponse(userInput) {
-        setTimeout(() => {
-            appendBotMessage(`I'm sorry, I don't have that capability yet.`);
-        }, 500);
+    function sendMessage() {
+        const userInput = chatbotInput.value;
+        if (userInput) {
+            appendUserMessage(userInput);
+            // Simulate chatbot response
+            simulateChatbotResponse();
+            chatbotInput.value = '';
+        }
+    }
+
+    function simulateChatbotResponse() {
+        const responses = ["What was that?", "Can you speak up? I can't hear you!"];
+        const randomIndex = Math.floor(Math.random() * responses.length);
+        const randomResponse = responses[randomIndex];
+        appendBotMessage(randomResponse);
     }
 
     function appendUserMessage(message) {
-        const chatBox = document.getElementById('chat-box');
         const messageElement = document.createElement('div');
         messageElement.classList.add('chat-message', 'user');
         messageElement.innerHTML = `<p>${message}</p>`;
-        chatBox.appendChild(messageElement);
-        chatContainer.scrollTop = chatContainer.scrollHeight;
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
     function appendBotMessage(message) {
-        const chatBox = document.getElementById('chat-box');
         const messageElement = document.createElement('div');
         messageElement.classList.add('chat-message', 'bot');
         messageElement.innerHTML = `<p>${message}</p>`;
-        chatBox.appendChild(messageElement);
-        chatContainer.scrollTop = chatContainer.scrollHeight;
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 });
-
