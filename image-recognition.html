@@ -1,16 +1,16 @@
-<!-- index.html -->
+<!-- image-recognition.html -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UtilityAI - Home</title>
+    <title>UtilityAI - Image Recognition</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
-        <h1>UtilityAI</h1>
+        <h1>UtilityAI - Image Recognition</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -21,19 +21,18 @@
         </nav>
     </header>
     <main>
-        <section id="home">
-            <h2>Welcome to UtilityAI</h2>
-            <p>Choose a utility:</p>
-            <ul>
-                <li><a href="chatbot.html">Chatbot</a></li>
-                <li><a href="image-recognition.html">Image Recognition</a></li>
-            </ul>
+        <section id="image-recognition">
+            <h2>Image Recognition</h2>
+            <div id="image-recognition-container">
+                <input type="file" id="image-upload" accept="image/*">
+                <button id="capture-button">Capture Image</button>
+                <div id="image-result"></div>
+            </div>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 UtilityAI. All rights reserved.</p>
     </footer>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
-
-
