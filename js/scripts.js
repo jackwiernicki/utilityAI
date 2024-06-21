@@ -6,6 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatMessages = document.getElementById('chat-messages');
     const chatContainer = document.getElementById('chat-container');
 
+    console.log("chatbotInput:", chatbotInput);
+    console.log("chatbotSend:", chatbotSend);
+    console.log("chatMessages:", chatMessages);
+    console.log("chatContainer:", chatContainer);
+
     chatbotSend.addEventListener('click', () => {
         sendMessage();
     });
@@ -33,25 +38,32 @@ document.addEventListener("DOMContentLoaded", () => {
         const randomResponse = responses[randomIndex];
         setTimeout(() => {
             appendBotMessage(randomResponse);
-            chatContainer.scrollTop = chatContainer.scrollHeight; // Adjust scroll after appending message
+            if (chatContainer) {
+                chatContainer.scrollTop = chatContainer.scrollHeight; // Adjust scroll after appending message
+            }
         }, 500); // Simulate delay for more realistic feel
     }
-
+    
     function appendUserMessage(message) {
         const messageElement = document.createElement('div');
         messageElement.classList.add('chat-message', 'user');
         messageElement.innerHTML = `<p>${message}</p>`;
         chatMessages.appendChild(messageElement);
-        chatContainer.scrollTop = chatContainer.scrollHeight;
+        if (chatContainer) {
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
     }
-
+    
     function appendBotMessage(message) {
         const messageElement = document.createElement('div');
         messageElement.classList.add('chat-message', 'bot');
         messageElement.innerHTML = `<p>${message}</p>`;
         chatMessages.appendChild(messageElement);
-        chatContainer.scrollTop = chatContainer.scrollHeight;
+        if (chatContainer) {
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
     }
+    
 });
 
 
