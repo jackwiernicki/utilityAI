@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function sendMessage() {
-        const userInput = chatbotInput.value;
+        const userInput = chatbotInput.value.trim();
         if (userInput) {
             appendUserMessage(userInput);
             // Simulate chatbot response
@@ -36,15 +36,26 @@ document.addEventListener("DOMContentLoaded", () => {
         const messageElement = document.createElement('div');
         messageElement.classList.add('chat-message', 'user');
         messageElement.innerHTML = `<p>${message}</p>`;
-        chatMessages.appendChild(messageElement);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        if (chatMessages) {
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        } else {
+            console.error('Chat messages container not found.');
+        }
     }
 
     function appendBotMessage(message) {
         const messageElement = document.createElement('div');
         messageElement.classList.add('chat-message', 'bot');
         messageElement.innerHTML = `<p>${message}</p>`;
-        chatMessages.appendChild(messageElement);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        if (chatMessages) {
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        } else {
+            console.error('Chat messages container not found.');
+        }
     }
 });
+
