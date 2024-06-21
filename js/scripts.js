@@ -48,12 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const messageElement = document.createElement('div');
         messageElement.classList.add('chat-message', 'bot');
         messageElement.innerHTML = `<p>${message}</p>`;
-        if (chatMessages) {
-            chatMessages.appendChild(messageElement);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        } else {
-            console.error('Chat messages container not found.');
-        }
+        chatMessages.appendChild(messageElement);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
     }
 });
 
