@@ -1,34 +1,56 @@
 // scripts.js
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Chatbot functionality
     const chatbotInput = document.getElementById('chatbot-input');
     const chatbotSend = document.getElementById('chatbot-send');
-    const chatbotResponse = document.getElementById('chatbot-response');
+    const chatContainer = document.getElementById('chat-container');
 
     chatbotSend.addEventListener('click', () => {
         const userInput = chatbotInput.value;
         if (userInput) {
+            appendUserMessage(userInput);
             // Placeholder for chatbot API call
             // Backend API integration will be added here
-            chatbotResponse.textContent = `You asked: ${userInput}`;
+            simulateChatbotResponse(userInput); // Simulate response for now
             chatbotInput.value = '';
         }
     });
 
-    // Image recognition functionality
-    const imageUpload = document.getElementById('image-upload');
-    const captureButton = document.getElementById('capture-button');
-    const imageResult = document.getElementById('image-result');
-
-    captureButton.addEventListener('click', () => {
-        const file = imageUpload.files[0];
-        if (file) {
-            // Placeholder for image recognition API call
-            // Backend API integration will be added here
-            imageResult.textContent = `Image ${file.name} selected. Processing...`;
-        } else {
-            imageResult.textContent = 'No image selected';
+    chatbotInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const userInput = chatbotInput.value;
+            if (userInput) {
+                appendUserMessage(userInput);
+                // Placeholder for chatbot API call
+                // Backend API integration will be added here
+                simulateChatbotResponse(userInput); // Simulate response for now
+                chatbotInput.value = '';
+            }
         }
     });
+
+    function simulateChatbotResponse(userInput) {
+        setTimeout(() => {
+            appendBotMessage(`I'm sorry, I don't have that capability yet.`);
+        }, 500);
+    }
+
+    function appendUserMessage(message) {
+        const chatBox = document.getElementById('chat-box');
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('chat-message', 'user');
+        messageElement.innerHTML = `<p>${message}</p>`;
+        chatBox.appendChild(messageElement);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function appendBotMessage(message) {
+        const chatBox = document.getElementById('chat-box');
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('chat-message', 'bot');
+        messageElement.innerHTML = `<p>${message}</p>`;
+        chatBox.appendChild(messageElement);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
 });
+
