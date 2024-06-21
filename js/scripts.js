@@ -6,10 +6,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatMessages = document.getElementById('chat-messages');
     const chatContainer = document.getElementById('chat-container');
 
+    // Debugging: Check if elements are correctly selected
     console.log("chatbotInput:", chatbotInput);
     console.log("chatbotSend:", chatbotSend);
     console.log("chatMessages:", chatMessages);
     console.log("chatContainer:", chatContainer);
+
+    if (!chatbotInput || !chatbotSend || !chatMessages || !chatContainer) {
+        console.error("One or more elements are not found in the DOM.");
+        return;
+    }
 
     chatbotSend.addEventListener('click', () => {
         sendMessage();
@@ -43,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }, 500); // Simulate delay for more realistic feel
     }
-    
+
     function appendUserMessage(message) {
         const messageElement = document.createElement('div');
         messageElement.classList.add('chat-message', 'user');
@@ -53,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
             chatContainer.scrollTop = chatContainer.scrollHeight;
         }
     }
-    
+
     function appendBotMessage(message) {
         const messageElement = document.createElement('div');
         messageElement.classList.add('chat-message', 'bot');
@@ -63,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
             chatContainer.scrollTop = chatContainer.scrollHeight;
         }
     }
-    
 });
 
 
