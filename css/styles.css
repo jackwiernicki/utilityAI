@@ -36,7 +36,9 @@ header nav ul li a {
 
 main {
     flex: 1;
-    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 section {
@@ -56,8 +58,8 @@ footer {
 
 /* Chatbot specific styles */
 .chat-container {
+    width: 100%;
     max-width: 600px;
-    margin: auto;
 }
 
 .chat-box {
@@ -88,24 +90,40 @@ footer {
 .chat-input {
     display: flex;
     margin-top: 20px;
+    align-items: center;
 }
 
 .chat-input input[type="text"] {
     flex: 1;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
 }
 
 .chat-input button {
-    padding: 10px 20px;
+    margin-left: 10px;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 0 5px 5px 0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .chat-input button:hover {
     background-color: #0056b3;
 }
+
+.chat-input button:focus {
+    outline: none;
+}
+
+.fa-check {
+    font-size: 24px;
+    margin-top: 2px;
+}
+
