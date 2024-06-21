@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const randomResponse = responses[randomIndex];
         setTimeout(() => {
             appendBotMessage(randomResponse);
+            chatContainer.scrollTop = chatContainer.scrollHeight; // Adjust scroll after appending message
         }, 500); // Simulate delay for more realistic feel
     }
 
@@ -52,4 +53,5 @@ document.addEventListener("DOMContentLoaded", () => {
         chatContainer.scrollTop = chatContainer.scrollHeight;
     }
 });
+
 
