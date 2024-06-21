@@ -66,13 +66,14 @@ footer {
     align-items: center;
     text-align: center;
     padding: 20px;
-    max-height: 500px; /* Limiting chatbot height */
+    height: 500px; /* Fixed height for chatbot container */
+    width: 100%;
     overflow-y: auto; /* Adding scrollbar when content exceeds height */
 }
 
 .chat-messages {
-    width: 100%;
     max-width: 600px;
+    width: 100%;
     margin-bottom: 20px;
 }
 

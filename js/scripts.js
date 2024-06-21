@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatbotInput = document.getElementById('chatbot-input');
     const chatbotSend = document.getElementById('chatbot-send');
     const chatMessages = document.getElementById('chat-messages');
+    const chatContainer = document.getElementById('chat-container');
 
     chatbotSend.addEventListener('click', () => {
         sendMessage();
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Simulate chatbot response
             simulateChatbotResponse();
             chatbotInput.value = '';
+            chatbotInput.focus(); // Keep input focused after sending message
         }
     }
 
@@ -36,14 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const messageElement = document.createElement('div');
         messageElement.classList.add('chat-message', 'user');
         messageElement.innerHTML = `<p>${message}</p>`;
-        
-        if (chatMessages) {
-            chatMessages.appendChild(messageElement);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        } else {
-            console.error('Chat messages container not found.');
-        }
+        chatMessages.appendChild(messageElement);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
     }
+
 
     function appendBotMessage(message) {
         const messageElement = document.createElement('div');

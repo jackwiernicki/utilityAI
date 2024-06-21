@@ -5,33 +5,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UtilityAI - Home</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>UtilityAI Chatbot</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>UtilityAI</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="chatbot.html">Chatbot</a></li>
-                <li><a href="image-recognition.html">Image Recognition</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Chatbot</a></li>
+                <li><a href="#">Image Recognition</a></li>
+                <li><a href="#">About</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="home">
-            <h2>Welcome to UtilityAI</h2>
-            <p>Choose a utility:</p>
-            <ul>
-                <li><a href="chatbot.html">Chatbot</a></li>
-                <li><a href="image-recognition.html">Image Recognition</a></li>
-            </ul>
+        <section>
+            <div class="chat-container" id="chat-container">
+                <div class="chat-messages" id="chat-messages"></div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatbot-input" placeholder="Type a message...">
+                <button id="chatbot-send"><i class="fa fa-check"></i></button>
+            </div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 UtilityAI. All rights reserved.</p>
+        UtilityAI &copy; 2024. All rights reserved.
     </footer>
 </body>
 </html>
