@@ -93,8 +93,8 @@ footer {
 .chat-message.user {
     background-color: #007bff;
     color: #ffffff;
-    text-align: right;
-    align-self: flex-end;
+    text-align: left; /* Adjusted to align left for user messages */
+    align-self: flex-start; /* Adjusted to align left for user messages */
 }
 
 .chat-message.user p,
@@ -144,4 +144,5 @@ footer {
     font-size: 24px;
     margin-top: 2px;
 }
+
 
