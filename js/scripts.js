@@ -31,7 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const responses = ["What was that?", "Can you speak up? I can't hear you!"];
         const randomIndex = Math.floor(Math.random() * responses.length);
         const randomResponse = responses[randomIndex];
-        appendBotMessage(randomResponse);
+        setTimeout(() => {
+            appendBotMessage(randomResponse);
+        }, 500); // Simulate delay for more realistic feel
     }
 
     function appendUserMessage(message) {
@@ -46,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const messageElement = document.createElement('div');
         messageElement.classList.add('chat-message', 'bot');
         messageElement.innerHTML = `<p>${message}</p>`;
-        
         if (chatMessages) {
             chatMessages.appendChild(messageElement);
             chatMessages.scrollTop = chatMessages.scrollHeight;
