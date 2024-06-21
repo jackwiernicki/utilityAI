@@ -97,6 +97,11 @@ footer {
     align-self: flex-end;
 }
 
+.chat-message.user p,
+.chat-message.bot p {
+    margin: 0; /* Remove default margin for <p> */
+}
+
 .chat-input {
     display: flex;
     align-items: center;
