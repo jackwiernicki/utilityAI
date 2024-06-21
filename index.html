@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UtilityAI</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>UtilityAI</h1>
+        <nav>
+            <ul>
+                <li><a href="#chatbot">Chatbot</a></li>
+                <li><a href="#image-recognition">Image Recognition</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="chatbot">
+            <h2>Chatbot</h2>
+            <div id="chatbot-container">
+                <input type="text" id="chatbot-input" placeholder="Ask a question...">
+                <button id="chatbot-send">Send</button>
+                <div id="chatbot-response"></div>
+            </div>
+        </section>
+        <section id="image-recognition">
+            <h2>Image Recognition</h2>
+            <div id="image-recognition-container">
+                <input type="file" id="image-upload" accept="image/*">
+                <button id="capture-button">Capture Image</button>
+                <div id="image-result"></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 UtilityAI. All rights reserved.</p>
+    </footer>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
+
