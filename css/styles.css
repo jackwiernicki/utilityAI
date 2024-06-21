@@ -40,6 +40,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px 0;
 }
 
 section {
@@ -50,6 +51,9 @@ section {
     padding: 1.5em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
+    height: calc(100vh - 140px); /* Adjusted height of chatbot section */
+    display: flex;
+    flex-direction: column;
 }
 
 footer {
@@ -61,20 +65,14 @@ footer {
 
 /* Chatbot specific styles */
 .chat-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    height: 500px; /* Fixed height for chatbot container */
-    width: 100%;
+    flex: 1;
     overflow-y: auto; /* Adding scrollbar when content exceeds height */
+    padding: 20px;
 }
 
 .chat-messages {
-    max-width: 600px;
+    max-width: 100%;
     width: 100%;
-    margin-bottom: 20px;
 }
 
 .chat-message {
@@ -98,7 +96,7 @@ footer {
     background-color: #007bff;
     color: #ffffff;
     text-align: left; /* Adjusted to align left for user messages */
-    align-self: flex-start; /* Adjusted to align left for user messages */
+    align-self: flex-end; /* Aligned right for user messages */
 }
 
 .chat-message.user p,
@@ -111,6 +109,11 @@ footer {
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-top: 10px;
+    position: sticky;
+    bottom: 0;
+    background-color: #333333;
+    padding: 15px;
 }
 
 .chat-input input[type="text"] {
