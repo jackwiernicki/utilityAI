@@ -1,29 +1,27 @@
-<!-- chatbot.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UtilityAI - Chatbot</title>
+    <title>Chatbot - UtilityAI</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>UtilityAI - Chatbot</h1>
+        <h1>UtilityAI</h1>
         <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="chatbot.html">Chatbot</a></li>
-                <li><a href="image-recognition.html">Image Recognition</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
+            <a href="index.html">Home</a>
+            <a href="chatbot.html">Chatbot</a>
+            <a href="image-recognition.html">Image Recognition</a>
+            <a href="about.html">About</a>
         </nav>
     </header>
     <main>
         <div id="chat-container">
-            <div id="chat-messages"></div>
+            <div id="chat-display">
+                <div id="chat-response"></div>
+                <div id="chat-user-prompt"></div>
+            </div>
             <div id="chat-input-container">
                 <input type="text" id="chatbot-input" placeholder="Hello, let's chat!">
                 <button id="chatbot-send">✔️</button>
@@ -36,3 +34,4 @@
     <script src="js/scripts.js"></script>
 </body>
 </html>
+
