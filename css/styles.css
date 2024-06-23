@@ -52,7 +52,7 @@ main {
     width: 100%;
     max-width: 600px;
     overflow-y: auto;
-    margin-bottom: 80px; /* Space for the input container */
+    margin-bottom: 25%; /* Space for the input container */
 }
 
 #chat-user-prompt,
