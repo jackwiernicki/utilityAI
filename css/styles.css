@@ -38,7 +38,7 @@ main {
     align-items: center;
     width: 100%;
     max-width: 600px;
-    height: 35vh; /* Adjust this height as needed */
+    height: 50vh; /* Adjust this height as needed */
     padding: 20px;
     box-sizing: border-box;
     position: relative;
@@ -60,7 +60,6 @@ main {
 #chat-response {
     max-width: 90%;
     background-color: #333;
-    color: green;
     border-radius: 10px;
     padding: 10px;
     margin: 5px 0;
@@ -77,7 +76,6 @@ main {
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background-color: #222;
     position: absolute;
     bottom: 0;
 }
