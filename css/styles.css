@@ -102,6 +102,33 @@ main {
     background-color: #666;
 }
 
+/* Styles for modern buttons similar to chatbot page */
+
+#image-upload, #capture-button {
+    padding: 10px 20px;
+    background-color: #555;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 10px;
+}
+
+#image-upload:hover, #capture-button:hover {
+    background-color: #666;
+}
+
+/* Align and style upload and camera sections */
+#upload-section, #camera-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+
 footer {
     background-color: #333;
     padding: 10px;

@@ -1,11 +1,9 @@
-<!-- image-recognition.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UtilityAI - Image Recognition</title>
+    <title>Image Recognition - UtilityAI</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -19,18 +17,26 @@
         </nav>
     </header>
     <main>
-        <section id="image-recognition">
+        <div id="image-recognition-container">
             <h2>Image Recognition</h2>
-            <div id="image-recognition-container">
-                <input type="file" id="image-upload" accept="image/*">
-                <button id="capture-button">Capture Image</button>
-                <div id="image-result"></div>
+            <div id="upload-section">
+                <input type="file" id="upload-input" accept="image/*">
+                <button id="image-upload">Upload Image</button>
             </div>
-        </section>
+            <div id="camera-section">
+                <button id="capture-button">Take Photo</button>
+                <video id="camera-preview" autoplay></video>
+                <canvas id="camera-canvas"></canvas>
+            </div>
+            <div id="results-section">
+                <h3>Results</h3>
+                <p id="result-text">Your image recognition result will appear here.</p>
+            </div>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 UtilityAI. All rights reserved.</p>
     </footer>
-    <script src="js/scripts.js"></script>
+    <script src="image-recognition.js"></script>
 </body>
 </html>
