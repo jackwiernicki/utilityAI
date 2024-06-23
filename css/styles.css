@@ -76,7 +76,6 @@ main {
     align-items: center;
     padding: 10px;
     background-color: #222;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
     position: absolute;
     bottom: 0;
 }
