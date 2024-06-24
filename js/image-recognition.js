@@ -1,5 +1,3 @@
-// image-recognition.js
-
 document.addEventListener("DOMContentLoaded", () => {
     const uploadInput = document.getElementById('upload-input');
     const imageUploadButton = document.getElementById('image-upload');
@@ -9,45 +7,55 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultText = document.getElementById('result-text');
     let stream = null;
 
-    // Handle image upload
-    imageUploadButton.addEventListener('click', () => {
-        uploadInput.click();
-    });
+    // Detect if the user is on a mobile device
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+        captureButton.style.display = 'none';
+    }
 
-    uploadInput.addEventListener('change', () => {
-        const file = uploadInput.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = () => {
-                displayImage(reader.result);
-            };
-            reader.readAsDataURL(file);
-        }
-    });
+    // Handle image upload
+    if (imageUploadButton && uploadInput) {
+        imageUploadButton.addEventListener('click', () => {
+            uploadInput.click();
+        });
+
+        uploadInput.addEventListener('change', () => {
+            const file = uploadInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    displayImage(reader.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
 
     // Handle camera functionality
-    captureButton.addEventListener('click', async () => {
-        if (stream) {
-            // Capture the image from the video stream
-            const context = cameraCanvas.getContext('2d');
-            cameraCanvas.width = cameraPreview.videoWidth;
-            cameraCanvas.height = cameraPreview.videoHeight;
-            context.drawImage(cameraPreview, 0, 0, cameraCanvas.width, cameraCanvas.height);
-            const imageDataUrl = cameraCanvas.toDataURL('image/png');
-            displayImage(imageDataUrl);
-            stopCamera();
-        } else {
-            // Start the camera
-            try {
-                stream = await navigator.mediaDevices.getUserMedia({ video: true });
-                cameraPreview.srcObject = stream;
-                cameraPreview.style.display = 'block';
-                cameraCanvas.style.display = 'none';
-            } catch (err) {
-                console.error("Error accessing camera: ", err);
+    if (!isMobile && captureButton && cameraPreview && cameraCanvas) {
+        captureButton.addEventListener('click', async () => {
+            if (stream) {
+                // Capture the image from the video stream
+                const context = cameraCanvas.getContext('2d');
+                cameraCanvas.width = cameraPreview.videoWidth;
+                cameraCanvas.height = cameraPreview.videoHeight;
+                context.drawImage(cameraPreview, 0, 0, cameraCanvas.width, cameraCanvas.height);
+                const imageDataUrl = cameraCanvas.toDataURL('image/png');
+                displayImage(imageDataUrl);
+                stopCamera();
+            } else {
+                // Start the camera
+                try {
+                    stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                    cameraPreview.srcObject = stream;
+                    cameraPreview.style.display = 'block';
+                    cameraCanvas.style.display = 'none';
+                } catch (err) {
+                    console.error("Error accessing camera: ", err);
+                }
             }
-        }
-    });
+        });
+    }
 
     function stopCamera() {
         if (stream) {
@@ -70,3 +78,4 @@ document.addEventListener("DOMContentLoaded", () => {
         image.src = imageDataUrl;
     }
 });
+
