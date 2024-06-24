@@ -68,12 +68,31 @@ document.addEventListener("DOMContentLoaded", () => {
     function displayImage(imageDataUrl) {
         cameraPreview.style.display = 'none';
         cameraCanvas.style.display = 'block';
+        
         const context = cameraCanvas.getContext('2d');
         const image = new Image();
         image.onload = () => {
-            cameraCanvas.width = image.width;
-            cameraCanvas.height = image.height;
-            context.drawImage(image, 0, 0);
+            const maxWidth = document.getElementById('image-recognition-container').offsetWidth;
+            const maxHeight = document.getElementById('image-recognition-container').offsetHeight;
+
+            // Calculate the new image dimensions to fit within the container
+            let width = image.width;
+            let height = image.height;
+
+            if (width > maxWidth) {
+                height *= maxWidth / width;
+                width = maxWidth;
+            }
+
+            if (height > maxHeight) {
+                width *= maxHeight / height;
+                height = maxHeight;
+            }
+
+            cameraCanvas.width = width;
+            cameraCanvas.height = height;
+
+            context.drawImage(image, 0, 0, width, height);
         };
         image.src = imageDataUrl;
     }
