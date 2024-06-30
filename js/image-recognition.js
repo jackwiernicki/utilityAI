@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultText = document.getElementById('result-text');
     let stream = null;
 
+    const azureEndpoint = 'https://jack-sandbox-computer-vision.cognitiveservices.azure.com/';
+    const subscriptionKey = 'ece73dc932284d078559087efb2be5fd';
+
     // Detect if the user is on a mobile device
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
@@ -25,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Capture the image from the video stream
-    function captureImage() {
+    async function captureImage() {
         if (stream) {
             const context = cameraCanvas.getContext('2d');
             cameraCanvas.width = cameraPreview.videoWidth;
@@ -33,6 +36,53 @@ document.addEventListener("DOMContentLoaded", () => {
             context.drawImage(cameraPreview, 0, 0, cameraCanvas.width, cameraCanvas.height);
             const imageDataUrl = cameraCanvas.toDataURL('image/png');
             displayImage(imageDataUrl);
+            await analyzeImage(imageDataUrl);
+        }
+    }
+
+    async function analyzeImage(imageDataUrl) {
+        try {
+            const response = await fetch(`${azureEndpoint}/vision/v3.1/analyze?visualFeatures=Description`, {
+                method: 'POST',
+                headers: {
+                    'Ocp-Apim-Subscription-Key': subscriptionKey,
+                    'Content-Type': 'application/octet-stream'
+                },
+                body: makeBlob(imageDataUrl)
+            });
+            const data = await response.json();
+            displayResult(data);
+        } catch (error) {
+            console.error("Error analyzing image: ", error);
+        }
+    }
+
+    function makeBlob(dataURL) {
+        const BASE64_MARKER = ';base64,';
+        if (dataURL.indexOf(BASE64_MARKER) === -1) {
+            const parts = dataURL.split(',');
+            const contentType = parts[0].split(':')[1];
+            const raw = decodeURIComponent(parts[1]);
+            return new Blob([raw], { type: contentType });
+        }
+        const parts = dataURL.split(BASE64_MARKER);
+        const contentType = parts[0].split(':')[1];
+        const raw = window.atob(parts[1]);
+        const rawLength = raw.length;
+        const uInt8Array = new Uint8Array(rawLength);
+
+        for (let i = 0; i < rawLength; ++i) {
+            uInt8Array[i] = raw.charCodeAt(i);
+        }
+
+        return new Blob([uInt8Array], { type: contentType });
+    }
+
+    function displayResult(data) {
+        if (data && data.description && data.description.captions) {
+            resultText.innerText = data.description.captions[0].text;
+        } else {
+            resultText.innerText = 'No description available.';
         }
     }
 
@@ -74,5 +124,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Start the camera on page load
     startCamera();
 });
+
 
 

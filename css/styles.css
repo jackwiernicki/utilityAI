@@ -112,6 +112,11 @@ main {
     position: relative;
 }
 
+#result-text {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
 video, canvas {
     width: 100%;
     height: auto;
