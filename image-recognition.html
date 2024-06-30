@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
     <header>
         <h1>UtilityAI</h1>
         <nav>
@@ -18,18 +19,12 @@
     </header>
     <main>
         <div id="image-recognition-container">
-            <video id="camera-preview" autoplay></video>
-            <canvas id="camera-canvas"></canvas>
+            <img id="captured-image" style="display:none;" alt="Captured Image"/>
             <p id="result-text"></p>
-            <button id="start-camera-button">Start Camera</button>
-            <button id="capture-button" style="display:none;">Capture Image</button>
-            <button id="switch-camera-button" style="display:none;">Switch Camera</button>
+            <input type="file" id="image-upload" accept="image/*" capture="environment" style="display:none;">
+            <button id="start-camera-button">Take a Picture</button>
         </div>
     </main>
-    <footer>
-        <p>&copy; 2024 UtilityAI. All rights reserved.</p>
-    </footer>
     <script src="js/image-recognition.js"></script>
 </body>
 </html>
-

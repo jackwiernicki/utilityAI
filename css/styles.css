@@ -127,6 +127,12 @@ video, canvas {
     display: block;
 }
 
+img {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
 button {
     padding: 10px 20px;
     background-color: #555;
