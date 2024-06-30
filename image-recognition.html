@@ -16,12 +16,15 @@
             <a href="about.html">About</a>
         </nav>
     </header>
-    <main id="image-recognition-container">
-        <video id="camera-preview"></video>
-        <canvas id="camera-canvas"></canvas>
-        <p id="result-text"></p>
-        <button id="start-camera-button">Start Camera</button>
-        <button id="capture-button" style="display:none;">Capture Image</button>
+    <main>
+        <div id="image-recognition-container">
+            <video id="camera-preview" autoplay></video>
+            <canvas id="camera-canvas"></canvas>
+            <p id="result-text"></p>
+            <button id="start-camera-button">Start Camera</button>
+            <button id="capture-button" style="display:none;">Capture Image</button>
+            <button id="switch-camera-button" style="display:none;">Switch Camera</button>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 UtilityAI. All rights reserved.</p>
@@ -29,3 +32,4 @@
     <script src="js/image-recognition.js"></script>
 </body>
 </html>
+
