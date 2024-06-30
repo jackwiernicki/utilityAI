@@ -8,6 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const azureEndpoint = 'https://jack-sandbox-computer-vision.cognitiveservices.azure.com/';
     const subscriptionKey = 'ece73dc932284d078559087efb2be5fd';
 
+    // Detect if the user is on a mobile device
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+        // Hide capture button if on mobile device
+        captureButton.style.display = 'none';
+    }
+
     // Start the camera
     async function startCamera() {
         try {
@@ -15,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
             cameraPreview.srcObject = stream;
             cameraPreview.style.display = 'block';
             cameraCanvas.style.display = 'none';
+            captureButton.style.display = 'block';
         } catch (err) {
             console.error("Error accessing camera: ", err);
         }
@@ -112,11 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Event listeners
+    startCameraButton.addEventListener('click', startCamera);
     captureButton.addEventListener('click', captureImage);
-
-    // Start the camera on page load
-    startCamera();
 });
-
-
-
+    

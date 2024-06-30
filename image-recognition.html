@@ -16,13 +16,20 @@
             <a href="about.html">About</a>
         </nav>
     </header>
-    <div id="image-recognition-container">
-        <h1>Image Recognition</h1>
-        <video id="camera-preview" autoplay playsinline></video>
+    <main id="image-recognition-container">
+        <video id="camera-preview"></video>
         <canvas id="camera-canvas"></canvas>
-        <button id="capture-button">Capture Image</button>
         <p id="result-text"></p>
-    </div>
+        <button id="start-camera-button">Start Camera</button>
+        <button id="capture-button" style="display:none;">Capture Image</button>
+    </main>
+    <footer>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="chatbot.html">Chatbot</a>
+            <a href="about.html">About</a>
+        </nav>
+    </footer>
     <script src="js/image-recognition.js"></script>
 </body>
 </html>
