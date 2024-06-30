@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const startCameraButton = document.getElementById('start-camera-button');
     const captureButton = document.getElementById('capture-button');
     const cameraPreview = document.getElementById('camera-preview');
     const cameraCanvas = document.getElementById('camera-canvas');
