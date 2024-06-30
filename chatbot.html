@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot - UtilityAI</title>
+    <title>UtilityAI - Chatbot</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -17,21 +17,14 @@
         </nav>
     </header>
     <main>
-        <h2 style="text-align: center;">Chatbot</h2>
         <div id="chat-container">
-            <div id="chat-display">
-                <div id="chat-user-prompt"></div>
-                <div id="chat-response"></div>
-            </div>
-            <div id="chat-input-container">
-                <input type="text" id="chatbot-input" placeholder="Hello, let's chat!">
-                <button id="chatbot-send">✔️</button>
-            </div>
+            <div id="chat-messages"></div>
+            <form id="chat-form">
+                <input type="text" id="user-input" placeholder="Hello, let's chat!" required>
+                <button type="submit">Send</button>
+            </form>
         </div>
     </main>
-    <footer>
-        <p>&copy; 2024 UtilityAI. All rights reserved.</p>
-    </footer>
     <script src="js/scripts.js"></script>
 </body>
 </html>
