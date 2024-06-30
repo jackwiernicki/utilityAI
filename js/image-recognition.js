@@ -8,13 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const azureEndpoint = 'https://jack-sandbox-computer-vision.cognitiveservices.azure.com/';
     const subscriptionKey = 'ece73dc932284d078559087efb2be5fd';
 
-    // Detect if the user is on a mobile device
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-        // Hide capture button if on mobile device
-        captureButton.style.display = 'none';
-    }
-
     // Start the camera
     async function startCamera() {
         try {
