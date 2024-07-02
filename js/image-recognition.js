@@ -7,7 +7,8 @@
         const resultText = document.getElementById('result-text');
     
         const azureEndpoint = 'https://jack-sandbox-computer-vision.cognitiveservices.azure.com/';
-        const subscriptionKey = 'ece73dc932284d078559087efb2be5fd';
+        const subscriptionKey = process.env.MSFT_COMP_VISION_KEY
+
         // Function to analyze the image
         async function analyzeImage(imageBlob) {
             try {
