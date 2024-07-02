@@ -1,13 +1,20 @@
 
 
     document.addEventListener("DOMContentLoaded", () => {
+
+        const subscriptionKey = process.env.REACT_APP_COMPUTER_VISION_KEY;
+
+        if (!computerVisionKey) {
+            console.error('Computer Vision API key not found.');
+            return;
+        }
         const startCameraButton = document.getElementById('start-camera-button');
         const imageUpload = document.getElementById('image-upload');
         const capturedImage = document.getElementById('captured-image');
         const resultText = document.getElementById('result-text');
     
         const azureEndpoint = 'https://jack-sandbox-computer-vision.cognitiveservices.azure.com/';
-        const subscriptionKey = 'ece73dc932284d078559087efb2be5fd'
+        // const  subscriptionKey = 'ece73dc932284d078559087efb2be5fd'
 
         // Function to analyze the image
         async function analyzeImage(imageBlob) {
