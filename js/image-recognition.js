@@ -2,7 +2,7 @@
 
     document.addEventListener("DOMContentLoaded", () => {
 
-        const subscriptionKey = process.env.MSFT_COMP_VISION_KEY;
+        const subscriptionKey = env.MSFT_COMP_VISION_KEY;
 
         if (!computerVisionKey) {
             console.error('Computer Vision API key not found.');
