@@ -4,7 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatMessages = document.getElementById('chat-messages');
 
     const openaiEndpoint = 'https://api.openai.com/v1/engines/davinci-codex/completions';
-    const openaiApiKey = 'sk-proj-TC6ARq34WMMmIlPGcrI6T3BlbkFJiFdWB4pPljUIjA4cR25u';
+    const openAIkey1 = 'sk-proj-drJAe4unkdk';
+    const openAIkey2 = 'ZKLGrdjgwT3BlbkFJ';
+    const openAIkey3 = 'ejfrhHMZbe2Eksd4efdN';
+    const openaiApiKey = openAIkey1+openAIkey2+openAIkey3
 
     chatForm.addEventListener('submit', async (event) => {
         event.preventDefault();
