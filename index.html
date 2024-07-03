@@ -19,19 +19,21 @@
         </nav>
     </header>
     <main>
-        <section id="home">
-            
-            <p>Choose a utility:</p>
-            <ul>
-                <li><a href="chatbot.html">Chatbot</a></li>
-                <li><a href="image-recognition.html">Image ID</a></li>
-            </ul>
-        </section>
+        <p>Choose a utility:</p>
+        <button href="chatbot.html" onclick="goToCB()">CHATBOT</button>
+        <button href="image-recognition.html" onclick="goToIR()">IMAGE ID</button>
+        
     </main>
     <footer>
         <p>&copy; 2024 UtilityAI. All rights reserved.</p>
     </footer>
+    <script>
+        function goToCB() {
+            window.location.href = "chatbot.html";
+        }
+        function goToIR() {
+            window.location.href = "image-recognition.html";
+        }
+    </script>
 </body>
 </html>
-
-
